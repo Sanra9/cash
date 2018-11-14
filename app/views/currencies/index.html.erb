@@ -1,16 +1,22 @@
-<h1>Currencies</h1>
 
-<table>
-    <tr>
-        <th>Currency</th>
-        <th>Price buy</th>
-        <th>Price sale</th>
-    </tr>
-    <% @currencies.each do |currency| %>    
-    <tr>
-        <th><%= currency.name %></th>
-        <th><%= currency.price_buy %></th>
-        <th><%= currency.price_sale %></th>
-    </tr>
-    <% end %>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Currencies</h1>
+            <table class='table'>
+                <tr>
+                    <th>Currency</th>
+                    <th>Price buy</th>
+                    <th>Price sale</th>
+                </tr>
+                <% @currencies.each do |currency| %>    
+                <tr>
+                    <th><%= currency.name %></th>
+                    <th><%= currency.price_buy %></th>
+                    <th><%= currency.price_sale %></th>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>
