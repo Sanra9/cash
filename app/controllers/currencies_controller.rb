@@ -1,4 +1,5 @@
 class CurrenciesController < ApplicationController
+    before_action :private_access, except: [:index, :show]
     def index
         @currencies = Currency.all
     end
@@ -39,9 +40,15 @@ class CurrenciesController < ApplicationController
 
         redirect_to currencies_path, notice: 'The currency has been deleted success'
     end
+    
+    def private_access
+        redirect_to :login unless signed_in?
+    end
 
     private
     def currency_params
         params.require(:currency).permit(:name, :price_buy, :price_sale, :available)
     end
+
+    
 end

@@ -11,16 +11,22 @@
                 </tr>
                 <% @currencies.each do |currency| %>    
                 <tr>
+                <% if signed_in? %>
                     <th><%= link_to currency.name, edit_currency_path(currency) %><br>
                     <%= link_to 'Delete Currency', currency, method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: '¿Are you sure youwant to eliminate the currency?'} %></th>
+                <% else %>
+                    <th><%=currency.name%></th>
+                <% end %>
                     <th><%= currency.price_buy %></th>
                     <th><%= currency.price_sale %></th>   
                 </tr>
                 <% end %>
             </table>
+         <% if signed_in? %>
             <div class='text-right'>
                 <%= link_to 'Add Currency', new_currency_path, class: 'btn btn-primary'%>
             </div>
+         <% end %>
         </div>  
     </div>
 </div>
