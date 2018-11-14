@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <h1>Currencies</h1>
             <table class='table'>
                 <tr>
@@ -11,12 +11,16 @@
                 </tr>
                 <% @currencies.each do |currency| %>    
                 <tr>
-                    <th><%= currency.name %></th>
+                    <th><%= link_to currency.name, edit_currency_path(currency) %><br>
+                    <%= link_to 'Delete Currency', currency, method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: '¿Are you sure youwant to eliminate the currency?'} %></th>
                     <th><%= currency.price_buy %></th>
-                    <th><%= currency.price_sale %></th>
+                    <th><%= currency.price_sale %></th>   
                 </tr>
                 <% end %>
             </table>
-        </div>
+            <div class='text-right'>
+                <%= link_to 'Add Currency', new_currency_path, class: 'btn btn-primary'%>
+            </div>
+        </div>  
     </div>
 </div>

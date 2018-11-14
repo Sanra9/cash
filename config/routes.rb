@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get '/currencies', to: 'currencies#index'
+ resources :currencies
+ root 'currencies#index'
 end

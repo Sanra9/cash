@@ -1,0 +1,29 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-6 col-sm-offset-3'>
+            <h1> <%= form_title %></h1>
+            <%= form_for @currency do |f| %>
+                <div class='form-group'>
+                    <%= f.text_field :name, class: 'form-control input-lg', placeholder:'Name Currency'%>
+                </div>
+                <div class='form-group'>
+                    <%= f.number_field :price_buy, class: 'form-control input-lg', placeholder: 'Price Buy', step: :any %>
+                </div>
+                <div class='form-group'>
+                    <%= f.number_field :price_sale, class: 'form-control input-lg', placeholder: 'Price Sale', step: :any %>
+                </div>
+                <div class='form-check'>
+                    <p>Disponible?</p>
+                    <%= f.radio_button :available, class: 'form-check-input', :checked => true %>
+                    <label class="form-check-label", for="available"> Sí </label> <br>
+                    <%= f.radio_button :available, class: 'form-check-input', :checked => false %>
+                    <label class="form-check-label", for="available"> No </label> <br>
+                </div>
+                <div>
+                <br>
+                <%= f.submit form_title, class: 'btn btn-primary btn-lg btn-block'%> 
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
