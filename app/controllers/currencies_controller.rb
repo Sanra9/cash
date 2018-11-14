@@ -37,7 +37,7 @@ class CurrenciesController < ApplicationController
         currency = Currency.find(params[:id])
         currency.destroy
 
-        redirect_to currencies_path, notice: 'The currency has been with success'
+        redirect_to currencies_path, notice: 'The currency has been deleted success'
     end
 
     private
