@@ -16,16 +16,28 @@ class CurrenciesController < ApplicationController
         end
     end
 
-    def edit
-        @currency = Currency.find(params[:id])
-    end
-
     def show
         @currency = Currency.find(params[:id])
     end
 
     def edit
         @currency = Currency.find(params[:id])
+    end
+
+    def update
+        currency = Currency.find(params[:id])
+        if currency.update(currency_params)
+            redirect_to currencies_path, notice: 'The currency has been modified success'
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        currency = Currency.find(params[:id])
+        currency.destroy
+
+        redirect_to currencies_path, notice: 'The currency has been with success'
     end
 
     private
